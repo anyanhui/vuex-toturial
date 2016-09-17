@@ -22,16 +22,17 @@
   </div>
 </template>
 <script>
+  import {editTodo, completeTodo, removeTodo} from '../store/actions'
   export default{
     methods: {
-      edit: function () {
-
+      edit: function (todo) {
+        editTodo(this.$store, todo)
       },
-      complete: function () {
-
+      complete: function (todo) {
+        completeTodo(this.$store, todo)
       },
-      remove: function () {
-        
+      remove: function (todo) {
+        removeTodo(this.$store, todo)
       }
     },
     computed: {
@@ -41,7 +42,7 @@
     }
   }
 </script>
-<style>
+<style scoped>
   .btn-group {
     float: right;
   }
